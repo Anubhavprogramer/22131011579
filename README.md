@@ -47,18 +47,6 @@ cd 22131011579
 
 ---
 
-### 2. Create a `.env` file in the root directory
-
-```env
-EMAIL=your_email@college.edu
-NAME=Your Name
-ROLLNO=your_roll_number
-ACCESS_CODE=your_access_code
-CLIENT_ID=your_client_id
-CLIENT_SECRET=your_client_secret
-```
-
----
 
 ### 3. Install Dependencies
 
