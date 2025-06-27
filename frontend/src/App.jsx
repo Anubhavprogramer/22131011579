@@ -8,29 +8,37 @@ function App() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [copied, setCopied] = useState(false);
+  const [customCode, setCustomCode] = useState("");
+  const [validity, setValidity] = useState("");
+  const [expiresAt, setExpiresAt] = useState(null);
 
   const handleShorten = async () => {
     setError("");
     setSuccess("");
     setShortURL("");
     setCopied(false);
+    setExpiresAt(null);
     if (!longURL) {
       setError("Please enter a URL to shorten.");
       return;
     }
     setLoading(true);
     try {
+      const body = { url: longURL };
+      if (customCode.trim()) body.shortcode = customCode.trim();
+      if (validity.trim()) body.validity = parseInt(validity, 10);
       const res = await fetch("http://localhost:3000/shorten", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ url: longURL }),
+        body: JSON.stringify(body),
       });
       const data = await res.json();
       if (res.ok) {
         setShortURL(data.shortUrl);
         setSuccess("URL shortened successfully!");
+        setExpiresAt(data.expiresAt);
       } else {
         setError(data.error || "Error shortening URL. Please try again.");
       }
@@ -59,6 +67,20 @@ function App() {
           value={longURL}
           onChange={(e) => setLongURL(e.target.value)}
         />
+        <input
+          type="text"
+          placeholder="Custom shortcode (optional)"
+          value={customCode}
+          onChange={(e) => setCustomCode(e.target.value)}
+          maxLength={32}
+        />
+        <input
+          type="number"
+          min="1"
+          placeholder="Validity (minutes, optional)"
+          value={validity}
+          onChange={(e) => setValidity(e.target.value)}
+        />
         <button onClick={handleShorten} disabled={loading}>
           {loading ? <span className="spinner"></span> : "Shorten URL"}
         </button>
@@ -75,6 +97,11 @@ function App() {
                 {copied ? "Copied!" : "Copy"}
               </button>
             </div>
+            {expiresAt && (
+              <div className="expiry-info">
+                Expires at: {new Date(expiresAt).toLocaleString()}
+              </div>
+            )}
           </div>
         )}
       </div>

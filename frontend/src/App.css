@@ -30,6 +30,10 @@
   color: #2d3a4b;
 }
 
+.shortener-card input {
+  margin-bottom: 10px;
+}
+
 input {
   padding: 12px;
   margin: 10px 0;
@@ -120,6 +124,16 @@ button:hover:not(:disabled) {
 }
 .copy-btn:hover {
   background: #e0e7ef;
+}
+
+.expiry-info {
+  margin-top: 0.5rem;
+  color: #64748b;
+  font-size: 0.98rem;
+  background: #f1f5f9;
+  border-radius: 4px;
+  padding: 6px 10px;
+  display: inline-block;
 }
 
 @media (max-width: 500px) {
