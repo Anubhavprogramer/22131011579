@@ -176,10 +176,3 @@ GitHub: [https://github.com/YOUR\_USERNAME](https://github.com/YOUR_USERNAME)
 ## 📜 License
 
 MIT
-
-```
-
----
-
-Let me know if you want me to replace placeholders like `YOUR_USERNAME` and `Your Name` with your actual info!
-```
