@@ -167,8 +167,4 @@ This project is intended to run locally:
 Created by **Your Name**
 GitHub: [https://github.com/YOUR\_USERNAME](https://github.com/YOUR_USERNAME)
 
----
 
-## 📜 License
-
-MIT
