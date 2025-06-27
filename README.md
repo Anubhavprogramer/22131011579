@@ -33,7 +33,6 @@ url-shortener/
 - Redirects short URLs to the original link.
 - Reusable logging middleware for both backend and frontend.
 - Authenticates with AffordMed evaluation server.
-- Uses `.env` to securely manage credentials.
 
 ---
 
