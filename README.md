@@ -100,11 +100,7 @@ npm run dev
 { "shortUrl": "http://localhost:3000/abc123" }
 ```
 
----
 
-### `GET /:shortId`
-
-Redirects the user to the original URL.
 
 
 
