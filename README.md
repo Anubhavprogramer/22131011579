@@ -106,39 +106,8 @@ npm run dev
 
 Redirects the user to the original URL.
 
----
 
-## 🧠 How Logging Works
 
-* Logs are sent to: `http://20.244.56.144/evaluation-service/logs`
-* Token is fetched from: `http://20.244.56.144/evaluation-service/auth`
-* Middleware handles:
-
-  * Token management
-  * Log validation
-  * Network request to log API
-
----
-
-## ✨ Logger Usage Example
-
-```js
-import { log } from "../middleware/logger.js";
-
-await log("backend", "info", "handler", "URL shortened");
-```
-
----
-
-## ✅ Log Constraints
-
-| Field     | Allowed Values                                      |
-| --------- | --------------------------------------------------- |
-| `stack`   | `"backend"`, `"frontend"`                           |
-| `level`   | `"debug"`, `"info"`, `"warn"`, `"error"`, `"fatal"` |
-| `package` | `"handler"`, `"component"`, `"utils"`, etc.         |
-
----
 
 ## 📦 Deployment
 
