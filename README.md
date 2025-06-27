@@ -42,7 +42,7 @@ url-shortener/
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/url-shortener.git
-cd url-shortener
+cd 22131011579
 ````
 
 ---
