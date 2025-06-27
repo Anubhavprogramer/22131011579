@@ -1,21 +1,34 @@
 import "./App.css";
 import { useState } from "react";
+import {log} from "../../middleware/logger";
 
 function App() {
   const [longURL, setLongURL] = useState("");
   const [shortURL, setShortURL] = useState("");
 
   const handleShorten = async () => {
+
+    if (!longURL) {
+      await log("frontend", "error", "component", "Shorten button clicked without URL");
+      alert("Please enter a URL to shorten.");
+      return;
+    }
   
-    const res = await fetch("http://localhost:3000/shorten", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ url: longURL }),
-    });
-    const data = await res.json();
-    setShortURL(data.shortUrl);
+    try {
+      const res = await fetch("http://localhost:3000/shorten", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ url: longURL }),
+      });
+      const data = await res.json();
+      setShortURL(data.shortUrl);
+      await log("frontend", "info", "api", `Shortened URL: ${longURL} to ${data.shortUrl}`);
+    } catch (error) {
+      await log("frontend", "error", "api", `Error shortening URL: ${error.message}`);
+      alert("Error shortening URL. Please try again.");
+    }
   };
 
   return(

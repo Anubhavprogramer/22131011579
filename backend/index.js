@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const {nanoid} = require('nanoid');
+const {log} = require('../middleware/logger');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -9,17 +10,22 @@ app.use(cors());
 app.use(express.json());
 
 const urlDatabase = {};
-app.post('/shorten', (req, res) => {
+
+
+app.post('/shorten', async (req, res) => {
     const { url } = req.body;
     if (!url) {
+        await log("backend", "error", "handler", "URL shortening failed: URL is required");
         return res.status(400).json({ error: 'URL is required' });
     }
 
     const id = nanoid(8);
     urlDatabase[id] = url;
-
+    await log("backend", "info", "handler", `Shortened URL: ${url} to ID: ${id}`);
     res.json({ shortUrl: `http://localhost:${PORT}/${id}` });
 });
+
+
 app.get('/:id', (req, res) => {
     const longUrl = urlDatabase[req.params.id];
     if (!longUrl) {
