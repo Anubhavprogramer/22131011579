@@ -160,11 +160,6 @@ This project is intended to run locally:
 * **Backend:** [http://localhost:3000](http://localhost:3000)
 * **Frontend:** [http://localhost:5173](http://localhost:5173) (if using Vite)
 
----
 
-## 👨‍💻 Author
-
-Created by **Your Name**
-GitHub: [https://github.com/YOUR\_USERNAME](https://github.com/YOUR_USERNAME)
 
 
