@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const {nanoId} = require('nanoid');
+const {nanoid} = require('nanoid');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -15,7 +15,7 @@ app.post('/shorten', (req, res) => {
         return res.status(400).json({ error: 'URL is required' });
     }
 
-    const id = nanoId(8);
+    const id = nanoid(8);
     urlDatabase[id] = url;
 
     res.json({ shortUrl: `http://localhost:${PORT}/${id}` });
