@@ -9,7 +9,7 @@ function App() {
   const handleShorten = async () => {
 
     if (!longURL) {
-      await log("frontend", "error", "component", "Shorten button clicked without URL");
+      await log("frontend", "warn", "component", "Shorten button clicked without URL");
       alert("Please enter a URL to shorten.");
       return;
     }
