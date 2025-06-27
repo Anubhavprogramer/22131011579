@@ -1,8 +1,4 @@
-Sure! Here's your updated and cleanly formatted `README.md` with fixed sections, consistent Markdown styling, and code blocks for better readability. This version is ready to use:
 
----
-
-```markdown
 # 🔗 URL Shortener with Logging Middleware
 
 A full-stack URL shortener built using **React** (frontend), **Node.js + Express** (backend), and a shared **logging middleware** that logs to the AffordMed evaluation API.
