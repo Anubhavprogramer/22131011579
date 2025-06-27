@@ -26,11 +26,13 @@ app.post('/shorten', async (req, res) => {
 });
 
 
-app.get('/:id', (req, res) => {
+app.get('/:id', async (req, res) => {
     const longUrl = urlDatabase[req.params.id];
-    if (!longUrl) {
+    if (longUrl) {
+        await log("backend", "info", "handler", `Redirecting ID: ${req.params.id} to URL: ${longUrl}`);
         return res.redirect(longUrl);
     } else {
+        await log("backend", "warn", "handler", `URL not found for ID: ${req.params.id}`);
         return res.status(404).json({ error: 'URL not found' });
     }
 });
