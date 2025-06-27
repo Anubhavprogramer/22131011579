@@ -158,7 +158,7 @@ await log("backend", "info", "handler", "URL shortened");
 This project is intended to run locally:
 
 * **Backend:** [http://localhost:3000](http://localhost:3000)
-* **Frontend:** [http://localhost:5173](http://localhost:5173) (if using Vite)
+* **Frontend:** [http://localhost:5173](http://localhost:5173)
 
 
 
